@@ -1,0 +1,13 @@
+project(longlink)
+cmake_minimum_required(VERSION 3.5)
+
+add_definitions(-std=c++11)
+
+add_executable(longlinkmain main.cpp)
+
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
+include(libevent)
+
+add_dependencies(longlinkmain LIBEVENT)
+target_link_libraries(longlinkmain ${LIBEVENT_LIB})
+target_include_directories(longlinkmain PRIVATE ${LIBEVENT_INCLUDE_DIR})
