@@ -1,0 +1,23 @@
+#libzmq cmake
+include(ExternalProject)
+
+set(LIBZMQ_ROOT ${CMAKE_BINARY_DIR}/third_party/libzmq)
+
+set(LIBZMQ_SOURCE_DIR ${CMAKE_SOURCE_DIR}/third_party/libzmq)
+
+set(LIBZMQ_CONFIGURE cd ${LIBZMQ_ROOT} && cmake ${LIBZMQ_SOURCE_DIR})
+
+set(LIBZMQ_MAKE cd ${LIBZMQ_ROOT} && make)
+
+set(LIBZMQ_INSTALL cd ${LIBZMQ_ROOT} )
+
+ExternalProject_Add(LIBZMQ 
+	PREFIX ${LIBZMQ_ROOT}
+	CONFIGURE_COMMAND ${LIBZMQ_CONFIGURE}
+	BUILD_COMMAND ${LIBZMQ_MAKE}
+	INSTALL_COMMAND ${LIBZMQ_INSTALL}
+	SOURCE_DIR ${LIBZMQ_SOURCE_DIR})
+
+
+set(LIBZMQ_LIB ${LIBZMQ_ROOT}/lib/libzmq.a)
+
