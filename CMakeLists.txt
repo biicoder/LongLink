@@ -16,3 +16,5 @@ add_dependencies(longlinkmain HI_REDIS)
 add_dependencies(longlinkmain REDIS-PLUS-PLUS)
 target_link_libraries(longlinkmain ${LIBEVENT_LIB})
 target_include_directories(longlinkmain PRIVATE ${LIBEVENT_INCLUDE_DIR})
+
+add_subdirectory(src)
