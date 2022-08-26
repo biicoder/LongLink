@@ -60,20 +60,33 @@ class Obj {
 		}
 		int m_;
 };
+
+int func(int a) {
+	return a;
+}
+
+template<class T> const char* type() {
+	return __PRETTY_FUNCTION__;
+}
+
 int
 main(int argc, char* argv[]) {
 
 	std::cout << "hello world" << std::endl;
 
 	vector<Obj> vec;
-	Obj a;
 	Obj b;
+	Obj& a = b;
 	Obj c;
+	int (*p)(int) = func;
+	cout << typeid(a).name() << endl;
+	cout << type<decltype(p)>() << endl;
 	vec.push_back(a);
 	vec.push_back(b);
 	vec.push_back(c);
 	cout << "-----------" << endl;
-	for(auto it : vec) {
+	for(auto &it : vec) {
+		cout << typeid(it).name() << endl;
 		cout << type_name<decltype(it)>() << endl;
 		cout << it.m_ << endl;
 	}

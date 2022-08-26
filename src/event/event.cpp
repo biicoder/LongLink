@@ -12,7 +12,7 @@ main() {
 	struct event_base* base;
 	struct event* signal_int;
 	base = event_base_new();
-	signal_int = evsignal_new();
+	//signal_int = evsignal_new();
 	return 0;
 
 }

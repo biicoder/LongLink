@@ -10,7 +10,7 @@
 // usage:
 // const int ci = 0;
 // std::cout << type_name<decltype(ci)>() << '\n';
-
+// https://stackoverflow.com/questions/81870/is-it-possible-to-print-a-variables-type-in-standard-c/56766138
 template <class T>
 std::string
 type_name()
