@@ -1,6 +1,6 @@
 #redis cpp 客户端
 include(ExternalProject)
-include(redis)
+#include(redis)
 
 set(REDIS_PLUS_PLUS_ROOT ${CMAKE_BINARY_DIR}/third_party/redis_plus_plus)
 
@@ -21,4 +21,5 @@ ExternalProject_Add(REDIS-PLUS-PLUS
 	INSTALL_COMMAND ${REDIS_PLUS_PLUS_INSTALL}
 	SOURCE_DIR ${REDIS_PLUS_PLUS_SOURCE_DIR})
 
+add_dependencies(REDIS-PLUS-PLUS HI_REDIS)
 
